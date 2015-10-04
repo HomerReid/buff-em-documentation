@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Geometry descriptions - BUFF-EM documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../buffEM.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "reference/Geometries"
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+
+      <p align="center"
+      <a href="../..">
+         <img align="center" height="auto" width="100%"  
+              src="../../img/buffEMLogo.png"
+      </a>
+
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BUFF-EM documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">BUFF-EM documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/MieScattering/">Mie scattering</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/JanusParticles/">Power, force, and torque on a Janus particle irradiated by a plane wave</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/SiO2Spheres/">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/Pinwheels/">Thermal self-rotation of QED pinwheels</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../TopLevel/">Top-level overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Installing/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Geometry descriptions</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#2-examples-of-buff-em-geometries">2. Examples of buff-em geometries</a></li>
+                
+                    <li><a class="toctree-l4" href="#a-an-sio2-sphere-coated-with-a-layer-of-gold">a. An SiO2 sphere coated with a layer of gold</a></li>
+                
+                    <li><a class="toctree-l4" href="#b-two-gold-spheres-described-by-the-same-volume-mesh-but-separated-3-length-units-in-the-z-direction">b. Two gold spheres, described by the same volume mesh but separated 3 length units in the z direction</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../SVTensors/">Inhomogeneous/anisotropic materials</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../BUFFvsSCUFF/">Key differences between BUFF and SCUFF</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Command-line application reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-scatter/">buff-scatter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-neq/">buff-neq</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-analyze/">buff-analyze</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/libbuff/">libbuff</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical memo</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tex/buff-em-tex/">Technical memo</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BUFF-EM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.."><span class="SmallCaps">buff-em</span> documentation</a> &raquo;</li>
+    
+      
+        
+          <li>General reference &raquo;</li>
+        
+      
+    
+    <li>Geometry descriptions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/homerreid/buff-em/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1> Geometry descriptions in 
+     <span class="SC">buff-em</span>
+</h1>
+
+<p>Geometries in <a class="wikilink" href="../../buff-em/">buff-em</a> are described by simple text files 
+that are conventionally given the file extension <code>.buffgeo</code>.</p>
+<div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#1-syntax-of-the-buffgeo-file">1. Syntax of the .buffgeo file</a></li>
+<li><a href="#2-examples-of-buff-em-geometries">2. Examples of <span class="SC">buff-em</span> geometries</a><ul>
+<li><a href="#a-an-sio2-sphere-coated-with-a-layer-of-gold">a. An SiO2 sphere coated with a layer of gold</a></li>
+<li><a href="#b-two-gold-spheres-described-by-the-same-volume-mesh-but-separated-3-length-units-in-the-z-direction">b. Two gold spheres, described by the same volume mesh but separated 3 length units in the z direction</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="1-syntax-of-the-buffgeo-file">1. Syntax of the <code>.buffgeo</code> file</h1>
+<p>The <code>.buffgeo</code> file consists of one or more sections,
+delineated by the keywords <code>OBJECT...ENDOBJECT.</code>
+Each section defines a single compact object in a scattering
+geometry and takes the form</p>
+<pre><code class="bash">OBJECT Label
+    KEYWORD argument
+    KEYWORD argument
+    ...
+ENDOBJECT
+</code></pre>
+
+<p>where the various possible <code>KEYWORD argument</code> pairs are
+detailed below.</p>
+<ul>
+<li><code>MESHFILE MyMeshFile.vmsh</code></li>
+</ul>
+<p>Specifies the 3D (tetrahedra) volume mesh defining the object.
+The file should be present either in the current working 
+directory or in the search path specified by the environment
+variable <code>BUFF_MESH_PATH</code>.</p>
+<p>3D volume meshes are generated from a <a class="wikilink" href="../../gmsh/">gmsh</a> geometry 
+file by running <code>%gmsh -3 MyObject.geo</code>; this will produce a 
+file named <code>MyObject.msh</code>, which I typically rename to 
+<code>MyObject.vmsh</code> to indicate that it is a <em>volume</em> mesh
+as opposed to the surface mesh files used by <a class="wikilink" href="../../scuff-em/">scuff-em</a>.</p>
+<ul>
+<li><code>MATERIAL GOLD</code></li>
+<li><code>SVTENSOR MyMaterial.SVTensor</code></li>
+</ul>
+<p>Specifies the material properties of the object. </p>
+<p>The <code>MATERIAL</code> keyword is used for homogeneous isotropic
+bodies. In this case, <code>GOLD</code> should be a
+<a href="http://homerreid.github.io/scuff-em-documentation/reference/Materials/"><span class="SC">scuff-em</span> material designation</a>.
+This may be defined either in a database file (such as the
+file <code>${HOME}/.matprop.dat</code> or <code>./matprop.dat</code>) or on the fly
+in your <code>.buffgeo</code> file by including a <code>MATERIAL...ENDMATERIAL</code>
+section before your object definition.</p>
+<p>The alternative <code>SVTENSOR</code> keyword is used for inhomogeneous 
+and/or anisotropic materials. (It stands for "spatially-varying
+tensor.") In this case, <code>MyMaterial.SVTensor</code>
+should be a 
+<a href="../SVTensors/"><span class="SC">buff-em</span> spatially-varying tensor file</a>
+present either in the current working directory or in the search
+path defined by the environment variable <code>BUFF_SVTENSOR_PATH</code>.</p>
+<ul>
+<li><code>DISPLACED 2.3 4.5 6.7</code></li>
+<li><code>ROTATED 90 ABOUT 0 0 1</code></li>
+</ul>
+<p>These options specify geometrical transformations to be
+performed on the object after it has been read in from the
+<code>.vmsh</code> file.</p>
+<h1 id="2-examples-of-buff-em-geometries">2. Examples of <span class="SC">buff-em</span> geometries</h1>
+<h2 id="a-an-sio2-sphere-coated-with-a-layer-of-gold">a. An SiO2 sphere coated with a layer of gold</h2>
+<pre><code class="bash">OBJECT CoatedSphere
+    MESHFILE CoatedSphere_4017.vmsh
+    SVTENSOR CoatedSphere.SVTensor
+ENDOBJECT
+</code></pre>
+
+<p>The file <code>CoatedSphere.SVTensor</code> is described <a href="../SVTensors/#CoatedSphere">here</a>.</p>
+<h2 id="b-two-gold-spheres-described-by-the-same-volume-mesh-but-separated-3-length-units-in-the-z-direction">b. Two gold spheres, described by the same volume mesh but separated 3 length units in the <em>z</em> direction</h2>
+<pre><code class="bash">MATERIAL GOLD
+    wp = 1.37e16; 
+    gamma = 5.32e13;
+    Eps(w) = 1 - wp^2 / (w * (w + i*gamma));
+ENDMATERIAL
+
+OBJECT UpperSphere
+    MESHFILE Sphere_677.vmsh
+    MATERIAL Gold
+ENDOBJECT
+
+OBJECT LowerSphere
+    MESHFILE Sphere_677.vmsh
+    MATERIAL Gold
+    DISPLACED 0 0 3
+ENDOBJECT
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../SVTensors/" class="btn btn-neutral float-right" title="Inhomogeneous/anisotropic materials"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Installing/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  <a href="http://homerreid.com/buff-em"> 
+    <span class="SmallCaps">buff-em</span>
+  </a> documentation, by
+  <a href="http://homerreid.com">Homer Reid</a>
+
+  <p>
+  <font size=-1>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> 
+  using a customized theme modeled 
+  after the 
+  <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+  provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  </font>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Installing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../SVTensors/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Top-level overview - BUFF-EM documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../buffEM.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "reference/TopLevel"
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+
+      <p align="center"
+      <a href="../..">
+         <img align="center" height="auto" width="100%"  
+              src="../../img/buffEMLogo.png"
+      </a>
+
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BUFF-EM documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">BUFF-EM documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/MieScattering/">Mie scattering</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/JanusParticles/">Power, force, and torque on a Janus particle irradiated by a plane wave</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/SiO2Spheres/">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/Pinwheels/">Thermal self-rotation of QED pinwheels</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General reference</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Top-level overview</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#interfaces-to-buff-em">Interfaces to buff-em</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#inputs-to-buff-em-calculations">Inputs to buff-em calculations</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#outputs-from-buff-em-calculations">Outputs from buff-em calculations</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#command-line-applications">Command-line Applications</a></li>
+                
+                    <li><a class="toctree-l4" href="#nanophotonics-electromagnetic-scattering">Nanophotonics / electromagnetic scattering</a></li>
+                
+                    <li><a class="toctree-l4" href="#fluctuation-induced-interactions">Fluctuation-induced interactions</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#citing-buff-em">Citing buff-em</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Installing/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Geometries/">Geometry descriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../SVTensors/">Inhomogeneous/anisotropic materials</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../BUFFvsSCUFF/">Key differences between BUFF and SCUFF</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Command-line application reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-scatter/">buff-scatter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-neq/">buff-neq</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-analyze/">buff-analyze</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/libbuff/">libbuff</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical memo</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tex/buff-em-tex/">Technical memo</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BUFF-EM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.."><span class="SmallCaps">buff-em</span> documentation</a> &raquo;</li>
+    
+      
+        
+          <li>General reference &raquo;</li>
+        
+      
+    
+    <li>Top-level overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/homerreid/buff-em/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="top-level-overview-of-buff-em">Top-level overview of <a class="wikilink" href="../../buff-em/">buff-em</a></h1>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> is a free, open-source software
+implementation of the frequency-domain 
+volume-integral-equation (VIE) method of 
+classical electromagnetic
+scattering using <a href="http://dx.doi.org/10.1109/TAP.1984.1143193">SWG basis functions</a>.</p>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> is similar in many ways to 
+<a href="http://homerreid.github.io/scuff-em-documentation"><span class="SC">scuff-em</span></a>,
+which solves similar problems using the
+alternative surface-integral-equation (SIE)
+formalism. Some key differences between these
+codes are</p>
+<ul>
+<li>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> can handle bodies with inhomogeneous
+and/or anisotropic dielectric permittivity. In
+contrast, <a class="wikilink" href="../../scuff-em/">scuff-em</a> can only handle homogeneous
+isotropic materials.</p>
+</li>
+<li>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> requires scatterers to be described
+by volume (tetrahedral) meshes instead of 
+the surface (triangle) meshes used by <a class="wikilink" href="../../scuff-em/">scuff-em</a>.</p>
+</li>
+<li>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> does not aspire to solve the same
+breadth of problems that <a class="wikilink" href="../../scuff-em/">scuff-em</a> does. 
+More specifically, <a class="wikilink" href="../../buff-em/">buff-em</a> is primarily
+intended for just two classes of problem: 
+<strong>(a)</strong> classical scattering of known incident
+fields from compact bodies (implemented by the
+command-line code 
+<a href="../../applications/buff-scatter/"><span class="SC">buff-scatter</span></a>, 
+and 
+<strong>(b)</strong> non-equilibrium fluctuational
+electrodynamics in the fluctuating-volume-current 
+approach---including radiative heat transfer, thermal 
+self propulsion/rotation, and non-equilibrium Casimir 
+forces---for one or more compact bodies (implemented
+by the command-line code
+<a href="../../applications/buff-neq/"><span class="SC">buff-neq</span></a>).</p>
+</li>
+</ul>
+<p>(For more on similarities and differences between
+the two codes, see the document
+<a href="../BUFFvsSCUFF/">Key differences between <span class="SC">buff-em</span>
+and <span class="SC">scuff-em</span></a>).</p>
+<p>Like <a class="wikilink" href="../../scuff-em/">scuff-em</a>, <a class="wikilink" href="../../buff-em/">buff-em</a> consists of a 
+<a href="../../API/libbuff/">core library</a>,
+implementing the basic VIE functionality, plus
+the two specialized <a href="#AvailableApplications">application modules</a> 
+mentioned above for scattering and non-equilibrium
+fluctuations.</p>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> stands for <strong>BU</strong>lk <strong>F</strong>ield <strong>F</strong>ormulation of 
+<strong>E</strong>lectro<strong>M</strong>agnetism. This is a reference to the underlying solution 
+methodology used by <a class="wikilink" href="../../buff-em/">buff-em</a> and other VIE solvers, in which
+the primary goal of the solver is to compute the volume electric 
+current distribution throughout a compact body (which is
+locally proportional to the local bulk electric field,
+whereupon the name).</p>
+<p>Like <a class="wikilink" href="../../scuff-em/">scuff-em</a>, the entire <a class="wikilink" href="../../buff-em/">buff-em</a> suite is free software 
+distributed under the <a href="http://en.wikipedia.org/wiki/GNU_General_Public_License">GNU GPL</a>. The source code for
+<a class="wikilink" href="../../buff-em/">buff-em</a> may be downloaded from the 
+<a href="https://github.com/HomerReid/buff-em/"><span class="SC">buff-em</span> GitHub page</a>. 
+<strong>The GitHub page is also the right place for questions, 
+bug reports, feature requests, and other discussion of <a class="wikilink" href="../../buff-em/">buff-em</a>.</strong></p>
+<p>Note that <a class="wikilink" href="../../buff-em/">buff-em</a> requires <a class="wikilink" href="../../scuff-em/">scuff-em</a>, so you will need a
+working <a class="wikilink" href="../../scuff-em/">scuff-em</a> installation on your system before you can 
+start using <a class="wikilink" href="../../buff-em/">buff-em</a>.</p>
+<h2 id="interfaces-to-buff-em">Interfaces to <a class="wikilink" href="../../buff-em/">buff-em</a></h2>
+<p>As is true for <a class="wikilink" href="../../scuff-em/">scuff-em</a>, the core computational engine 
+in <a class="wikilink" href="../../buff-em/">buff-em</a> may be accessed via multiple interfaces.</p>
+<p>The <em>command-line interface</em> consists of specialized
+<a href="#AvailableApplications">command-line applications</a> for
+running specific calculations in computational
+physics. Using <a class="wikilink" href="../../buff-em/">buff-em</a> in this way requires only
+that you learn some basic command-line options;
+it should be possible to come quickly up to speed
+by following these
+<a href="../..#Examples">tutorial examples</a>.</p>
+<p>The <em>application programming interface</em> consists of 
+a <a href="../../API/libbuff/">C++ API</a>
+that allows access to internal <a class="wikilink" href="../../buff-em/">buff-em</a> data structures
+and methods for maximal flexibility in implementing your
+own custom-designed physics codes.</p>
+<h2 id="inputs-to-buff-em-calculations">Inputs to <a class="wikilink" href="../../buff-em/">buff-em</a> calculations</h2>
+<p>Typical inputs to <a class="wikilink" href="../../scuff-em/">scuff-em</a> calculations include</p>
+<ul>
+<li>
+<p>A <a href="../Geometries/">geometry file</a> describing the scattering geometry</p>
+</li>
+<li>
+<p>For anisotropic or inhomogeneous bodies, an 
+  <a href="../SVTensors/"><code>.SVTensor</code> file</a> describing
+  the spatially-varying components of the permittivity
+  tensor. ("SVTensor" stands for "spatially-varying tensor.")</p>
+</li>
+<li>
+<p>Specification of the frequencies at which you want to 
+  perform calculations.</p>
+</li>
+<li>
+<p>An optional 
+  <a href="http://homerreid.github.io/scuff-em-documentation/reference/Transformations">list of geometric transformations</a>
+  to be applied to the geometry, with calculations generally repeated
+  at each transformation. (The usage and syntax of transformations
+  in <a class="wikilink" href="../../buff-em/">buff-em</a> is identical to that in <a class="wikilink" href="../../scuff-em/">scuff-em</a>.)</p>
+</li>
+<li>
+<p>For scattering codes: a specification of the 
+  <a href="http://homerreid.github.io/scuff-em-documentation/reference/IncidentFields">Incident fields</a>. (Incident fields in 
+  in <a class="wikilink" href="../../buff-em/">buff-em</a> are handled the same way as in <a class="wikilink" href="../../scuff-em/">scuff-em</a>.)</p>
+</li>
+<li>
+<p>Specifications of the output quantities you wish to get back: 
+  field components at individual points in space, power/force/torque
+  information, Casimir quantities, heat-transfer rates, etc.</p>
+</li>
+</ul>
+<h2 id="outputs-from-buff-em-calculations">Outputs from <a class="wikilink" href="../../buff-em/">buff-em</a> calculations</h2>
+<p>Typical outputs from <a class="wikilink" href="../../buff-em/">buff-em</a> calculations include</p>
+<ul>
+<li>
+<p>text-based data files reporting output quantities</p>
+</li>
+<li>
+<p>Visualization files written in 
+  <a href="http://www.geuz.org/gmsh"><span class="SC">GMSH</span></a> post-processing
+  format.</p>
+</li>
+</ul>
+<p><a name="AvailableApplications"></a></p>
+<h2 id="command-line-applications">Command-line Applications</h2>
+<h3 id="nanophotonics-electromagnetic-scattering">Nanophotonics / electromagnetic scattering</h3>
+<ul>
+<li><a href="../../applications/buff-scatter/"><span class="SC">buff-scatter</span></a><blockquote>
+<p>A general-purpose solver for problems involving the 
+scattering of known incident fields from one or more
+compact objects.
+Available outputs include: scattered and total fields
+at arbitrary points in space; absorbed and scattered 
+power; force and torque (radiation pressure); and induced 
+multipole moments.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="fluctuation-induced-interactions">Fluctuation-induced interactions</h3>
+<ul>
+<li><a href="../../applications/buff-neq/"><span class="SC">buff-neq</span></a><blockquote>
+<p>An implementation of the fluctuating-volume-current
+approach to non-equilibrium fluctuation-induced
+interactions among compact objects.
+Available outputs include: frequency-resolved or 
+frequency-integrated rates of heat radiation or 
+radiative heat transfer; non-equilibrium Casimir 
+forces; self-propulsion and self-rotation of 
+isolated bodies.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="citing-buff-em">Citing <a class="wikilink" href="../../buff-em/">buff-em</a></h2>
+<p>If you find <a class="wikilink" href="../../buff-em/">buff-em</a> useful for generating
+results included in publications, please consider citing both 
+<strong>(a)</strong> one of the papers discussing the implementation of
+<a class="wikilink" href="../../buff-em/">buff-em</a>, and
+<strong>(b)</strong> the URL for the code. For example, if you are writing
+in LaTeX, you might write something like this:</p>
+<pre><code class="tex">Numerical computations were performed using {\sc buff-em}, a free,
+open-source software implementation of the 
+volume-integral-equation method~\cite{BUFF1, BUFF2}.
+</code></pre>
+
+<p>Here the <code>BUFF1</code> and <code>BUFF2</code>
+references refer to the following <code>.bibtex</code> entries:</p>
+<pre><code class="tex">@ARTICLE{BUFF1,
+author = {{Homer Reid}, M.~T. and {Johnson}, S.~G.},
+title = &quot;{Efficient Computation of Power, Force, and Torque in 
+BEM Scattering Calculations}&quot;,
+journal = {ArXiv e-prints},
+archivePrefix = &quot;arXiv&quot;,
+eprint = {1307.2966},
+primaryClass = &quot;physics.comp-ph&quot;,
+keywords = {Physics - Computational Physics, Physics - Classical Physics},
+year = 2013,
+month = jul,
+}
+
+@ARTICLE{BUFF2,
+note=&quot;\texttt{https://github.com/HomerReid/buff-em}&quot;
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Installing/" class="btn btn-neutral float-right" title="Installation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../examples/Pinwheels/" class="btn btn-neutral" title="Thermal self-rotation of QED pinwheels"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  <a href="http://homerreid.com/buff-em"> 
+    <span class="SmallCaps">buff-em</span>
+  </a> documentation, by
+  <a href="http://homerreid.com">Homer Reid</a>
+
+  <p>
+  <font size=-1>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> 
+  using a customized theme modeled 
+  after the 
+  <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+  provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  </font>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../examples/Pinwheels/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Installing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

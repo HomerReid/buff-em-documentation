@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres - BUFF-EM documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../buffEM.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "examples/SiO2Spheres/index"
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+
+      <p align="center"
+      <a href="../..">
+         <img align="center" height="auto" width="100%"  
+              src="../../img/buffEMLogo.png"
+      </a>
+
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BUFF-EM documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">BUFF-EM documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../MieScattering/">Mie scattering</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../JanusParticles/">Power, force, and torque on a Janus particle irradiated by a plane wave</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#gmsh-geometry-file-and-volume-mesh-for-a-single-sphere">gmsh geometry file and volume mesh for a single sphere</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#buff-em-geometry-files">buff-em geometry files</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#spectral-density-of-radiated-power">Spectral density of radiated power</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#spectral-density-of-power-transfer-and-non-equilibrium-force">Spectral density of power transfer and non-equilibrium force</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Pinwheels/">Thermal self-rotation of QED pinwheels</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/TopLevel/">Top-level overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/Installing/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/Geometries/">Geometry descriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/SVTensors/">Inhomogeneous/anisotropic materials</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/BUFFvsSCUFF/">Key differences between BUFF and SCUFF</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Command-line application reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-scatter/">buff-scatter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-neq/">buff-neq</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-analyze/">buff-analyze</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/libbuff/">libbuff</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical memo</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tex/buff-em-tex/">Technical memo</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BUFF-EM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.."><span class="SmallCaps">buff-em</span> documentation</a> &raquo;</li>
+    
+      
+        
+          <li>Examples &raquo;</li>
+        
+      
+    
+    <li>Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/homerreid/buff-em/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="thermal-radiation-heat-transfer-and-non-equilibrium-casimir-forces-between-silicon-dioxide-spheres">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</h1>
+<p>In this example, we use <a class="wikilink" href="../../buff-neq/">buff-neq</a> to reproduce the results
+of [this example from the <span class="SC">scuff-neq</span> documentation][scuffSIO2Spheres].
+We will compute <strong>(1)</strong> the power radiated by a single SiO2 
+sphere, and <strong>(2)</strong> the heat transfer and non-equilibrium 
+Casimir force between two SiO2 spheres.</p>
+<p>The files for this example may be found in the 
+<code>share/buff-em/examples/SiO2Spheres</code> subdirectory
+of your <a class="wikilink" href="../../buff-em/">buff-em</a> installation.</p>
+<hr />
+<h2 id="gmsh-geometry-file-and-volume-mesh-for-a-single-sphere"><a class="wikilink" href="../../gmsh/">gmsh</a> geometry file and volume mesh for a single sphere</h2>
+<p>The <a class="wikilink" href="../../gmsh/">gmsh</a> geometry file <a href="./Sphere.geo"><code>Sphere.geo</code></a>
+describes a sphere of radius 1 micron. (This is the
+same file used in <a href="../JanusParticles/">this example</a>; 
+as noted there, it is not the same <code>.geo</code> file that
+was used in the
+[<span class="SC">scuff-neq</span> version of this calculation][scuffSIO2Spheres],
+because for <a class="wikilink" href="../../buff-em/">buff-em</a> we need volume meshes instead of 
+surface meshes. This file may be meshed to create
+coarse and fine volume meshes as follows:</p>
+<pre><code class="bash">% gmsh -3 -clscale 1 Sphere.geo
+% RenameMesh3D Sphere.msh
+% gmsh -3 -clscale 0.75 Sphere.geo
+% RenameMesh3D Sphere.msh
+</code></pre>
+
+<p>(Here <a href="../JanusParticles/#RenameMesh3D"><code>RenameMesh3D</code></a> is a simple <code>bash</code> script
+that uses 
+<a href="../../applications/buff-analyze/"><span class="SC">buff-analyze</span></a>.
+to count the number of interior faces in a volume mesh and rename 
+the mesh file accordingly; note that it also changes
+the file extension from <code>.msh</code> to <code>.vmsh</code>, which I find
+convenient for distinguishing volume mesh files from
+surface mesh files. </p>
+<p>This produces the files <code>Sphere_637.msh</code> and <code>Sphere_1727.msh,</code>
+which you can visualize by opening in <a class="wikilink" href="../../gmsh/">gmsh</a>::</p>
+<pre><code class="bash">% gmsh Sphere_637.msh
+</code></pre>
+
+<p><img alt="Sphere_637 mesh image" src="./../JanusParticles/Sphere637.png" /></p>
+<pre><code class="bash">% gmsh Sphere_1727.msh
+</code></pre>
+
+<p><img alt="Sphere_1727 mesh image" src="./../JanusParticles/Sphere1727.png" /></p>
+<p>Note: As you can see from the first image here,
+by default <a class="wikilink" href="../../gmsh/">gmsh</a></p>
+<hr />
+<h2 id="buff-em-geometry-files"><a class="wikilink" href="../../buff-em/">buff-em</a> geometry files</h2>
+<p>The
+<a href="../../reference/Geometries/"><span class="SC">buff-em</span> geometry file</a>
+<a href="./SiO2Sphere_637.buffgeo"><code>SiO2Sphere_637.buffgeo</code></a>
+describes a single SiO2 sphere.</p>
+<p>The <a class="wikilink" href="../../buff-em/">buff-em</a> geometry files
+<a href="./SiO2Spheres_637.buffgeo"><code>SiO2Spheres_637.buffgeo</code></a>
+and
+<a href="./SiO2Spheres_1727.buffgeo"><code>SiO2Spheres_1727.buffgeo</code></a>
+each describe the same configuration: two SiO2 spheres
+separated by a center--center distance of 10 microns.
+You can visualize this configuration by typing e.g.</p>
+<pre><code class="bash">% buff-analyze --geometry SiO2Spheres_1727.buffgeo --WriteGMSHFiles
+% gmsh SiO2Spheres_1727.pp
+</code></pre>
+
+<p><img alt="SiO2Spheres_1727 mesh image" src="./SiO2Spheres_1727.png" /></p>
+<hr />
+<h2 id="spectral-density-of-radiated-power">Spectral density of radiated power</h2>
+<p>As described in the 
+<a href="../../applications/buff-neq/"><span class="CodeName">buff-neq</span> documentation</a>,
+<a class="wikilink" href="../../buff-neq/">buff-neq</a> computes the total power radiated by
+finite-temperature objects as an integral over angular frequencies
+<script type="math/tex">\omega,</script> in which the integrand involves a
+temperature-dependent Bose-Einstein factor 
+and a temperature-independent dimensionless flux <script type="math/tex">\Phi.</script> 
+To calculate this radiated-power flux at a given set
+of frequencies, we say</p>
+<pre><code class="bash"> % buff-neq --geometry SiO2Sphere_637.buffgeo --OmegaFile --PRad
+</code></pre>
+
+<p>where <a href="./OmegaFile"><code>OmegaFile</code></a> is a list of
+angular frequencies. (Here <code>--PRad</code> says that we
+are interested in the radiated power).
+This produces the file
+<code>SiO2Sphere_637.SiFlux</code>, which looks something
+like this:</p>
+<pre><code class="bash"># buff-neq run on superhr2 (07/11/15::00:31:36)
+# data file columns: 
+# 1 transform tag
+# 2 omega 
+# 3 (sourceObject,destObject) 
+# 4 PRad flux spectral density
+DEFAULT 1.000000e-01 11 4.18911788e-06 
+DEFAULT 1.300000e-01 11 1.38869207e-05 
+DEFAULT 1.600000e-01 11 3.93335327e-05 
+DEFAULT 1.900000e-01 11 1.05263974e-04 
+</code></pre>
+
+<p>As the file header says, the second column here
+is the angular frequency 
+in units of <script type="math/tex">\omega_0=3\cdot 10^{14}</script> rad/sec
+and the fourth column is the dimensionless power
+flux. (The first column lists the
+<a href="http://homerreid.github.io/scuff-em-documentation/reference/Transformations">geometrical transformation</a>;
+since 
+we didn't specify the <code>--transfile</code> option to 
+<a class="wikilink" href="../../buff-neq/">buff-neq</a>, we have just a single geometric
+configuration, labeled <code>DEFAULT</code>. The third 
+column identifies the source and destination objects;
+since this geometry only has a single object,
+the source and destination object are both 
+always object 1 and this column always reads
+<code>11</code>.)</p>
+<p>Here's a plot of the data:</p>
+<p><img alt="Power radiation from an SiO2Sphere" src="./SiO2Sphere_PowerRadiation.png" /></p>
+<p>In this plot, the solid line is the prediction of 
+the <a href="http://dx.doi.org/10.1103/PhysRevB.86.115423">Krueger formalism</a>, as computed
+by a <a class="wikilink" href="../../julia/">julia</a> code called <a href="./KruegerFormulas.jl"><code>KruegerFormulas.jl</code></a>.</p>
+<p>The plot is produced by <a class="wikilink" href="../../gnuplot/">gnuplot</a> using 
+<a href="./Plotter.gp">this script</a>.</p>
+<hr />
+<h2 id="spectral-density-of-power-transfer-and-non-equilibrium-force">Spectral density of power transfer and non-equilibrium force</h2>
+<p>Here's a <a href="./RunScript">bash script</a> that runs <a class="wikilink" href="../../buff-neq/">buff-neq</a>
+for both the coarsely-meshed and finely-meshed two-sphere
+geometry to compute the fluxes of power transfer
+and nonequilibrium force between the spheres. 
+Running the script produces files <code>SiO2Spheres_637.SIFlux</code>
+and <code>SiO2Spheres_1727.SIFlux.</code> Here are plots (produced
+by the same <a class="wikilink" href="../../gnuplot/">gnuplot</a> script referenced above)
+of the heat-transfer flux from sphere 1 to sphere 2,
+and the force fluxes from sphere 1 to sphere 2 and
+from sphere 2 to sphere 2, compared to the Krueger
+T-matrix results (again computed using the <a class="wikilink" href="../../julia/">julia</a>
+code referenced above).</p>
+<p><img alt="Power transfer between SiO2 Spheres" src="./SiO2Spheres_PowerTransfer.png" /></p>
+<p><img alt="Force between SiO2 Spheres" src="./SiO2Spheres_F12.png" /></p>
+<p><img alt="Force between SiO2 Spheres" src="./SiO2Spheres_F22.png" /></p>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../PhotonTorpedoes/" class="btn btn-neutral float-right" title="Thermal radiation and self-propulsion of photon torpedoes"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../JanusParticles/" class="btn btn-neutral" title="Power, force, and torque on a Janus particle irradiated by a plane wave"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  <a href="http://homerreid.com/buff-em"> 
+    <span class="SmallCaps">buff-em</span>
+  </a> documentation, by
+  <a href="http://homerreid.com">Homer Reid</a>
+
+  <p>
+  <font size=-1>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> 
+  using a customized theme modeled 
+  after the 
+  <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+  provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  </font>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../JanusParticles/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../PhotonTorpedoes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

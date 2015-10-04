@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>buff-neq - BUFF-EM documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../buffEM.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "applications/buff-neq"
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+
+      <p align="center"
+      <a href="../..">
+         <img align="center" height="auto" width="100%"  
+              src="../../img/buffEMLogo.png"
+      </a>
+
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BUFF-EM documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">BUFF-EM documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/MieScattering/">Mie scattering</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/JanusParticles/">Power, force, and torque on a Janus particle irradiated by a plane wave</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/SiO2Spheres/">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/Pinwheels/">Thermal self-rotation of QED pinwheels</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/TopLevel/">Top-level overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/Installing/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/Geometries/">Geometry descriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/SVTensors/">Inhomogeneous/anisotropic materials</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/BUFFvsSCUFF/">Key differences between BUFF and SCUFF</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Command-line application reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../buff-scatter/">buff-scatter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">buff-neq</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#2-buff-neq-command-line-options">2. buff-neq command-line options</a></li>
+                
+                    <li><a class="toctree-l4" href="#common-options">Common options</a></li>
+                
+                    <li><a class="toctree-l4" href="#options-requesting-output-quantities">Options requesting output quantities</a></li>
+                
+                    <li><a class="toctree-l4" href="#options-specifying-object-temperatures">Options specifying object temperatures</a></li>
+                
+                    <li><a class="toctree-l4" href="#options-controlling-the-computation-of-power-force-and-torque">Options controlling the computation of power, force, and torque</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#3-examples-of-calculations-using-buff-neq">3. Examples of calculations using buff-neq</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../buff-analyze/">buff-analyze</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/libbuff/">libbuff</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical memo</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tex/buff-em-tex/">Technical memo</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BUFF-EM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.."><span class="SmallCaps">buff-em</span> documentation</a> &raquo;</li>
+    
+      
+        
+          <li>Command-line application reference &raquo;</li>
+        
+      
+    
+    <li>buff-neq</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/homerreid/buff-em/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1> Modeling non-equilibrium electromagnetic fluctuations with
+     <span class="SC">buff-neq</span>
+</h1>
+
+<p><a class="wikilink" href="../../buff-neq/">buff-neq</a> is an application code in the <a class="wikilink" href="../../buff-em/">buff-em</a> suite for 
+studying non-equilibrium (NEQ) electromagnetic-fluctuation-induced 
+phenomena--specifically, for computing <em>radiative heat-transfer rates</em> 
+and <em>non-equilibrium Casimir forces and torques</em> for bodies of 
+arbitrary shapes and arbitrary (linear, isotropic, piecewise 
+homogeneous) frequency-dependent permittivity and permeability.
+<a class="wikilink" href="../../buff-neq/">buff-neq</a> implements the
+<a href="http://arxiv.org/abs/1505.05026"><em>fluctuating-volume current (FVC)</em> approach
+to numerical modeling of non-equilibrium fluctuation phenomena</a>.</p>
+<p>Mechanically, working with <a class="wikilink" href="../../buff-neq/">buff-neq</a> is similar in many ways to
+working with the non-equilibrium Casimir code 
+<a href="http://homerreid.github.io/scuff-em-documentation/applications/scuff-neq/scuff-neq"><span class="SC">scuff-neq</span></a> in the <a class="wikilink" href="../../scuff-em/">scuff-em</a> code suite.
+In particular,</p>
+<ul>
+<li>
+<p>As in <a class="wikilink" href="../../scuff-neq/">scuff-neq</a>, you can request either <strong>(a)</strong> frequency-resolved
+information on heat-transfer rates and NEQ Casimir forces (in which case 
+you will specify a list of frequencies and will get back a list of 
+frequency-specific values of energy and momentum fluxes) or 
+<strong>(b)</strong> frequency-integrated information, in which case you will assign 
+temperatures to each body in your geometry and <a class="wikilink" href="../../buff-neq/">buff-neq</a> will 
+numerically integrate the fluxes, weighted by appropriate Bose-Einstein 
+factors, to obtain the total heat-transfer rate or NEQ Casimir force. 
+(For more details, see 
+<a href="#WhatItComputes">What <span class="SC">buff-neq</span> actually computes</a>.)</p>
+</li>
+<li>
+<p>As in <a class="wikilink" href="../../scuff-neq/">scuff-neq</a>, you can specify an optional list of 
+<a href="http://homerreid.github.io/scuff-em-documentation/reference/Transformations">geometrical transformations</a>
+describing various displacements and rotations of the bodies 
+in your geometry; in this case you will get back values of the 
+frequency-resolved or frequency-integrated quantities for each 
+transformation you specify.</p>
+</li>
+</ul>
+<p>For Casimir forces and torques, the quantities computed by 
+<a class="wikilink" href="../../buff-neq/">buff-neq</a> are only the <em>non-equilibrium</em> contributions to 
+the total force and torque---that
+is, the contributions arising from the temperature 
+differences between individual bodies and the surrounding environment.
+To get the total force, these must be added to the <em>equilibrium</em>
+contributions, which are the Casimir forces and torques for the 
+case in which all bodies are at the temperature of the environment.
+(For heat-transfer rates there is of course no equilibrium 
+contribution, as there is no net power transfer between 
+bodies at thermal equilibrium.)</p>
+<div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#1-what-buff-neq-actually-computes">1. What <span class="SC">buff-neq</span> actually computes</a></li>
+<li><a href="#2-buff-neq-command-line-options">2. <span class="SC">buff-neq</span> command-line options</a><ul>
+<li><a href="#common-options">Common options</a></li>
+<li><a href="#options-requesting-output-quantities">Options requesting output quantities</a></li>
+<li><a href="#options-specifying-object-temperatures">Options specifying object temperatures</a></li>
+<li><a href="#options-controlling-the-computation-of-power-force-and-torque">Options controlling the computation of power, force, and torque</a></li>
+</ul>
+</li>
+<li><a href="#3-examples-of-calculations-using-buff-neq">3. Examples of calculations using <span class="SC">buff-neq</span></a></li>
+</ul>
+</div>
+<h1 id="1-what-buff-neq-actually-computes">1. What <span class="SC">buff-neq</span> actually computes</h1>
+<p><a class="wikilink" href="../../buff-neq/">buff-neq</a> implements the
+FVC approach to non-equilibrium fluctuation phenomena.
+This is 
+an algorithm for computing the thermal averages of power,
+force, and torque (PFT) quantities in geometries consisting
+of compact material bodies at various temperatures embedded
+in an finite-temperature or zero-temperature environment.
+<a class="wikilink" href="../../buff-neq/">buff-neq</a> can compute both
+spatially-<em>resolved</em> and spatially-<em>integrated</em> PFT quantities.
+(Examples of spatially-resolved quantities include components
+of the average Poynting flux or Maxwell stress tensor at individual
+points in space. Examples of spatially-integrated quantities 
+include the total power absorbed by, or the total force or torque 
+on, a compact homogeneous body. Spatially-integrated quantities 
+are generally obtained by integrating spatially-resolved quantities
+over closed bounding surfaces, although this is not necessarily
+the way they are computed by <a class="wikilink" href="../../buff-neq/">buff-neq</a>.)</p>
+<p><a name="CommandLineOptions"></a></p>
+<h1 id="2-buff-neq-command-line-options">2. <span class="SC">buff-neq</span> command-line options</h1>
+<h3 id="common-options">Common options</h3>
+<p><a class="wikilink" href="../../buff-neq/">buff-neq</a> recognizes the following subset of the
+list of commonly accepted options to <a class="wikilink" href="../../buff-em/">buff-em</a> command-line codes;
+these all have the same meaning as
+the <a href="http://homerreid.github.io/scuff-em-documentation/applications/GeneralReference#CommonOptions">corresponding options in <span class="SC">scuff-em</span></a>. 
+(In general, almost everything mentioned in the 
+<a href="http://homerreid.github.io/scuff-em-documentation/applications/GeneralReference">General reference for <span class="SC">scuff-em</span> command-line applications</a> 
+pertains to <a class="wikilink" href="../../buff-em/">buff-em</a> command-line applications as well.)</p>
+<p class="toc"><code>--geometry
+--TransFile
+--Omega
+--OmegaFile
+--OmegaQuadrature
+--OmegaMin
+--AbsTol
+--RelTol
+--FileBase</code></p>
+<h3 id="options-requesting-output-quantities">Options requesting output quantities</h3>
+<p class="toc"><code>--PAbs  
+--PRad  
+--XForce  
+--YForce  
+--ZForce
+--XTorque  
+--YTorque
+--ZTorque</code></p>
+<blockquote>
+<p>Specifies the quantities in which you are interested:
+absorbed power (<code>--PAbs</code>), radiated power (<code>--PRad</code>),
+Cartesian force components, or Cartesian torque components.
+You may specify none, all, or any subset of these options,
+but each option you specify will generally increase
+the computation time (you can scrutinize the
+<a href="#LogFile"><code>.log</code> file</a> to see how <em>much</em> additional time each
+extra output quantity takes to compute).</p>
+</blockquote>
+<h3 id="options-specifying-object-temperatures">Options specifying object temperatures</h3>
+<p class="toc"><code>--Temperature     UpperSphere 300
+--Temperature     LowerSphere 100</code></p>
+<p class="toc"><code>--TEnvironment    100</code></p>
+<p class="toc"><code>--TemperatureFile MyTemperatureFile.SVTensor</code></p>
+<blockquote>
+<p>The first two options here set the temperatures
+of the objects labeled <code>UpperSphere</code> and
+<code>LowerSphere</code> in the <code>.buffgeo</code> file. 
+<strong>Temperature specifications are interpreted in 
+units of Kelvin</strong>, so <code>300</code> corresponds to 
+room temperature.</p>
+<p>The <code>--TEnvironment</code> option here sets the temperature of
+the environment in which the objects are embedded.</p>
+<p>The <code>--TemperatureFile</code> option here may be used to
+define spatially inhomogeneous temperature profiles.
+In this case, <code>MyTemperatureFile.SVTensor</code> should be
+a <a href="../../reference/SVTensors/"><code>.SVTensor</code> file</a> describing an isotropic
+but possibly spatially inhomogeneous tensor 
+<script type="math/tex">\mathbf{Q}(\mathbf x)=Q(\mathbf x)\mathbf{1}</script>
+whose scalar value is the temperature in Kelvin; for example,
+<code>MyTemperatureFile.SVTensor</code> might contain the line</p>
+<p><code>bash
+  Q = 300*z + 100*(1-z)</code>    </p>
+<p>This describes a temperature profile that varies linearly
+from 100 Kelvin at <em>z</em>=0 to 300 Kelvin at <em>z</em>=1. (Here
+<code>Q</code> is just the conventional name used in the 
+<a href="../../reference/SVTensors/"><code>.SVTensor</code> file specification</a> for assigning
+formulas for tensor components.)</p>
+<p>Note that the temperatures of all objects, and of
+the environment, are zero by default. This means that,
+if you request a full frequency-integrated calculation
+(which you do by omitting the <code>--omega</code> or <code>--omegaFile</code>
+option) and you do not specify any <code>--temperature</code> 
+options, the code will chug for a while (computing 
+temperature-independent fluxes at various frequencies)
+before reporting strictly zero values for all
+quantities! This is probably not what you want.</p>
+</blockquote>
+<h3 id="options-controlling-the-computation-of-power-force-and-torque">Options controlling the computation of power, force, and torque</h3>
+<p><a class="wikilink" href="../../buff-neq/">buff-neq</a> implements several algorithms for computing
+powers, forces, and torques (PFTs). You may request the computation
+of PFTs via more than one method.</p>
+<p class="toc"><code>--JDEPFT</code></p>
+<blockquote>
+<p>Requests that PFTs be computed using the <script type="math/tex">\mathbf{J} \cdot \mathbf{E}</script> method.</p>
+</blockquote>
+<p class="toc"><code>--MomentPFT</code></p>
+<blockquote>
+<p>Requests that PFTs be computed using the moment method.</p>
+</blockquote>
+<p class="toc"><code>--DSIPoints  302
+--DSIMesh BoundingMesh.msh</code></p>
+<p class="toc"><code>--DSIPoints2 590</code></p>
+<p class="toc"><code>--DSIRadius  5.0</code></p>
+<blockquote>
+<p>These options request PFT calculations via the displaced-surface-integral
+(DSI) method.</p>
+<p>To request a DSIPFT calculation using <code>N</code> cubature points
+a over a bounding sphere of radius <code>R,</code> say
+<code>--DSIPoints N --DSIRadius R</code>. To see the allowed values
+of <code>N</code>, type <code>buff-neq --help.</code></p>
+<p>Alternatively, you can say <code>--DSIMesh BoundingMesh.msh</code>
+to request a DSIPFT calculation using 
+a one-point cubature over each triangular panel of 
+<code>BoundingMesh.msh</code>.</p>
+<p>To get a "second opinion," you can request a second 
+DSIPFT calculation by saying <code>--DSIPoints2 N</code>.
+This will perform a DSIPFT calculation over
+bounding sphere with <code>N</code> points (with the sphere radius
+set by <code>--DSIRadius</code>). This calculation will be 
+performed in addition to the first DSIPFT calculation
+you requested by specifying <code>--DSIPoints</code> or 
+<code>--DSIMesh.</code></p>
+</blockquote>
+<hr />
+<p><a name="Examples"></a></p>
+<h1 id="3-examples-of-calculations-using-buff-neq">3. Examples of calculations using <span class="SC">buff-neq</span></h1>
+<ul>
+<li><a href="../../examples/PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a></li>
+<li><a href="../../examples/Pinwheels/">Thermal self-rotation of QED pinwheels</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../buff-analyze/" class="btn btn-neutral float-right" title="buff-analyze"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../buff-scatter/" class="btn btn-neutral" title="buff-scatter"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  <a href="http://homerreid.com/buff-em"> 
+    <span class="SmallCaps">buff-em</span>
+  </a> documentation, by
+  <a href="http://homerreid.com">Homer Reid</a>
+
+  <p>
+  <font size=-1>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> 
+  using a customized theme modeled 
+  after the 
+  <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+  provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  </font>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../buff-scatter/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../buff-analyze/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

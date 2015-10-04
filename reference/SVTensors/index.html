@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Inhomogeneous/anisotropic materials - BUFF-EM documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../buffEM.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "reference/SVTensors"
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+
+      <p align="center"
+      <a href="../..">
+         <img align="center" height="auto" width="100%"  
+              src="../../img/buffEMLogo.png"
+      </a>
+
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BUFF-EM documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">BUFF-EM documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/MieScattering/">Mie scattering</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/JanusParticles/">Power, force, and torque on a Janus particle irradiated by a plane wave</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/SiO2Spheres/">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/Pinwheels/">Thermal self-rotation of QED pinwheels</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../TopLevel/">Top-level overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Installing/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Geometries/">Geometry descriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Inhomogeneous/anisotropic materials</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#functions-and-variables">Functions and variables</a></li>
+                
+                    <li><a class="toctree-l4" href="#referring-to-scuff-em-material-designations">Referring to scuff-em material designations</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#2-examples-of-svtensor-files">2. Examples of .SVTensor files</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-an-isotropic-but-spatially-varying-permittivity">1. An isotropic but spatially-varying permittivity</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-a-non-isotropic-permittivity">2. A non-isotropic permittivity</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-a-gold-coated-sio2-sphere">3. A gold-coated SiO2 sphere</a></li>
+                
+                    <li><a class="toctree-l4" href="#4-a-goldsio2-janus-particle">4. A gold/SiO2 Janus particle</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../BUFFvsSCUFF/">Key differences between BUFF and SCUFF</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Command-line application reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-scatter/">buff-scatter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-neq/">buff-neq</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-analyze/">buff-analyze</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/libbuff/">libbuff</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical memo</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tex/buff-em-tex/">Technical memo</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BUFF-EM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.."><span class="SmallCaps">buff-em</span> documentation</a> &raquo;</li>
+    
+      
+        
+          <li>General reference &raquo;</li>
+        
+      
+    
+    <li>Inhomogeneous/anisotropic materials</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/homerreid/buff-em/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1> Spatially-varying permittivity tensors in
+     <span class="SC">buff-em</span>
+</h1>
+
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> supports objects with arbitrary user-specified
+spatially-varying frequency-dependent permittivity tensors.
+These tensors are described by simple text files conventionally
+given the file extension <code>.SVTensor.</code></p>
+<p>The <code>.SVTensor</code> file is thought of as describing a
+3<script type="math/tex">\times</script>3 matrix-valued function
+<script type="math/tex">\mathbf{Q}</script> of frequency and space:</p>
+<p>
+<script type="math/tex; mode=display">\mathbf{Q}(\omega, \mathbf x)=\left(\begin{array}{ccc}
+ Q_{xx}(\omega, \mathbf x) & 
+ Q_{xy}(\omega, \mathbf x) & 
+ Q_{xz}(\omega, \mathbf x) \\
+ Q_{yx}(\omega, \mathbf x) & 
+ Q_{yy}(\omega, \mathbf x) & 
+ Q_{yz}(\omega, \mathbf x) \\
+ Q_{zx}(\omega, \mathbf x) & 
+ Q_{zy}(\omega, \mathbf x) & 
+ Q_{zz}(\omega, \mathbf x)
+\end{array}\right)</script>
+</p>
+<div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#1-syntax-of-the-svtensor-file">1. Syntax of the .SVTensor file</a><ul>
+<li><a href="#functions-and-variables">Functions and variables</a><ul>
+<li><a href="#referring-to-scuff-em-material-designations">Referring to scuff-em material designations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-examples-of-svtensor-files">2. Examples of .SVTensor files</a><ul>
+<li><a href="#1-an-isotropic-but-spatially-varying-permittivity">1. An isotropic but spatially-varying permittivity</a></li>
+<li><a href="#2-a-non-isotropic-permittivity">2. A non-isotropic permittivity</a></li>
+<li><a href="#3-a-gold-coated-sio2-sphere">3. A gold-coated SiO2 sphere</a></li>
+<li><a href="#4-a-goldsio2-janus-particle">4. A gold/SiO2 Janus particle</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="1-syntax-of-the-svtensor-file">1. Syntax of the <code>.SVTensor</code> file</h1>
+<p>The <code>.SVTensor</code> file contains lines of the form </p>
+<ul>
+<li><code>Q =</code> <em>function of space and frequency</em></li>
+</ul>
+<p>to define a spatially-varying but isotropic permittivity
+(proportional to the <script type="math/tex">3 \times 3</script> identity matrix), or</p>
+<ul>
+<li><code>Qxx =</code> <em>function of space and frequency</em></li>
+<li><code>Qxy =</code> <em>function of space and frequency</em></li>
+<li>...</li>
+<li><code>Qzz =</code> <em>function of space and frequency</em></li>
+</ul>
+<p>to define the individual cartesian components of the
+permittivity tensor.</p>
+<p>Note: Because <code>.SVTensor</code> files are most commonly
+used to define permittivities <script type="math/tex">\boldsymbol{\epsilon}</script>, 
+you can alternatively use the syntax</p>
+<ul>
+<li><code>Eps =</code> <em>function of space and frequency</em></li>
+</ul>
+<p>or </p>
+<ul>
+<li><code>EpsXX =</code> <em>function of space and frequency</em></li>
+<li><code>EpsXY =</code> <em>function of space and frequency</em></li>
+<li>... </li>
+<li><code>EpsZZ =</code> <em>function of space and frequency</em></li>
+</ul>
+<p>If you leave any off-diagonal components unspecified,
+they will be assumed to be zero. If you do specify an 
+off-diagonal component function, you only need to specify
+<em>either</em> the above-diagonal <em>or</em> the below-diagonal component,
+e.g. <code>Qxy</code> but not also <code>Qyx</code>; the code will automatically
+set <script type="math/tex">Q_{yx}=Q_{xy}</script>. If you do specify two separate functions
+for the two off-diagonal components of <script type="math/tex">\mathbf{Q}</script>, the code
+will symmetrize by setting both components equal to 
+their average.</p>
+<p>For diagonal components, if you specify <code>Qxx</code> but omit
+specifications for <code>Qyy</code> and <code>Qzz</code> then the code
+will set <script type="math/tex">Q_{yy}=Q_{zz}=Q_{xx}.</script>
+</p>
+<h2 id="functions-and-variables">Functions and variables</h2>
+<p>The user-defined <em>function of space and frequency</em> in the
+definition of permittivity components is a character string
+that may refer to any of the following variables:</p>
+<ul>
+<li><code>w</code>           (the angular frequency in units of 3e14 rad/sec)</li>
+<li><code>x,y,z</code>       (cartesian coordinates of points in space)</li>
+<li><code>r,Theta,Phi</code> (spherical coordinates of points in space)</li>
+</ul>
+<h3 id="referring-to-scuff-em-material-designations">Referring to <a class="wikilink" href="../../scuff-em/">scuff-em</a> material designations</h3>
+<p>In many cases your permittivity functions will want to refer to
+<a href="http://homerreid.github.io/scuff-em-documentation/reference/Materials/"><span class="SC">scuff-em</span> material designations</a>
+describing frequency-dependent homogeneous isotropic materials.
+You can do this by including the string <code>MP_MATNAME</code>
+in the function definition, where <code>MATNAME</code> is the name
+of the <a class="wikilink" href="../../scuff-em/">scuff-em</a> material.
+For example, here is a description of a material
+tensor that varies continuously from 100% gold to 
+100% silicon dioxide as the <em>z</em> coordinate runs
+from 0 to 1:</p>
+<pre><code class="bash"> Eps = MP_SIO2 * z + MP_GOLD*(1-z)
+</code></pre>
+
+<p>Note that there is no need to refer to the frequency <code>w</code> 
+here; the <code>GOLD</code> and <code>SIO2</code> permittivities will automatically
+by evaluated at the correct frequency.</p>
+<p>The definitions for the <a class="wikilink" href="../../scuff-em/">scuff-em</a> materials 
+(<code>SIO2</code> and <code>GOLD</code> in this case) may appear in
+<code>MATERIAL...ENDMATERIAL</code> sections within the <code>.SVTensor</code>
+file; alternatively, they may be defined in the
+global database file <code>${HOME}/.matprop.dat</code>
+or the local data file <code>matprop.dat</code> in the current
+working directory.</p>
+<h1 id="2-examples-of-svtensor-files">2. Examples of <code>.SVTensor</code> files</h1>
+<h2 id="1-an-isotropic-but-spatially-varying-permittivity">1. An isotropic but spatially-varying permittivity</h2>
+<p>Here's an isotropic material whose dielectric
+constant varies linearly as a function of the <em>z</em>-coordinate,
+from a value of <script type="math/tex">\epsilon=5+\frac{4i}{\omega}</script> at
+<script type="math/tex">z=-5</script> to a value of <script type="math/tex">\epsilon=10+\frac{8i}{\omega}</script>
+at <script type="math/tex">z=+5</script>:</p>
+<pre><code class="bash"> Eps = (5 + 4*i/w)*(1 + (z+5)/10 )
+</code></pre>
+
+<h2 id="2-a-non-isotropic-permittivity">2. A non-isotropic permittivity</h2>
+<p>This example describes the constant permittivity tensor
+<script type="math/tex">\boldsymbol{\epsilon}=
+ \left(\begin{array}{ccc} 2+3i & 0.01 & 0    \\
+                          0.01 & 2+3i & 0.00 \\
+                          0    &    0 & 4.5i \\
+       \end{array}\right)</script>:</p>
+<pre><code class="bash">EpsXX=2+3i
+EpsXY=0.1
+EpsZZ=4+5i
+</code></pre>
+
+<p><a name="CoatedSphere"></a></p>
+<h2 id="3-a-gold-coated-sio2-sphere">3. A gold-coated SiO2 sphere</h2>
+<p>This example is used to describe a silicon dioxide sphere of 
+radius 2 um coated with a layer of gold.
+Note that <code>step</code> refers to the Heaviside step function.</p>
+<pre><code class="bash"> Eps = step(2-r)*MP_SIO2 + step(r-2)*MP_GOLD
+</code></pre>
+
+<h2 id="4-a-goldsio2-janus-particle">4. A gold/SiO2 Janus particle</h2>
+<p>In this case the material is gold at points above the <em>xy</em> plane
+and SiO2 at points below the <em>xy</em> plane.</p>
+<pre><code class="bash"> Eps = step(z)*MP_GOLD + step(-z)*MP_SIO2
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../BUFFvsSCUFF/" class="btn btn-neutral float-right" title="Key differences between BUFF and SCUFF"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Geometries/" class="btn btn-neutral" title="Geometry descriptions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  <a href="http://homerreid.com/buff-em"> 
+    <span class="SmallCaps">buff-em</span>
+  </a> documentation, by
+  <a href="http://homerreid.com">Homer Reid</a>
+
+  <p>
+  <font size=-1>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> 
+  using a customized theme modeled 
+  after the 
+  <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+  provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  </font>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Geometries/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../BUFFvsSCUFF/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

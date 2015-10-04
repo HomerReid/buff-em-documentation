@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>libbuff - BUFF-EM documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../buffEM.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API/libbuff"
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+
+      <p align="center"
+      <a href="../..">
+         <img align="center" height="auto" width="100%"  
+              src="../../img/buffEMLogo.png"
+      </a>
+
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BUFF-EM documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">BUFF-EM documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/MieScattering/">Mie scattering</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/JanusParticles/">Power, force, and torque on a Janus particle irradiated by a plane wave</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/SiO2Spheres/">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/Pinwheels/">Thermal self-rotation of QED pinwheels</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/TopLevel/">Top-level overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/Installing/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/Geometries/">Geometry descriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/SVTensors/">Inhomogeneous/anisotropic materials</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/BUFFvsSCUFF/">Key differences between BUFF and SCUFF</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Command-line application reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-scatter/">buff-scatter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-neq/">buff-neq</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-analyze/">buff-analyze</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API reference</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">libbuff</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#setting-up-and-solving-the-vie-system">Setting up and solving the VIE system</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#computing-scattered-and-total-fields">Computing scattered and total fields</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#transforming-the-geometry">Transforming the geometry</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#computing-power-force-and-torque">Computing power, force, and torque</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical memo</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tex/buff-em-tex/">Technical memo</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BUFF-EM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.."><span class="SmallCaps">buff-em</span> documentation</a> &raquo;</li>
+    
+      
+        
+          <li>API reference &raquo;</li>
+        
+      
+    
+    <li>libbuff</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/homerreid/buff-em/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1> <span class="SC">buff-em</span> core library documentation
+</h1>
+
+<p>The <a class="wikilink" href="../../buff-em/">buff-em</a> core library, <a class="wikilink" href="../../libbuff/">libbuff</a>, exports a C++ class named 
+<code>SWGGeometry.</code> The public methods of this class offer access to the 
+computational routines provided by <a class="wikilink" href="../../buff-em/">buff-em</a> to implement the 
+discretized volume-integral-equation (VIE) approach to 
+computational electromagnetism.</p>
+<p>The <code>SWGGeometry</code> class is analogous to the <code>RWGGeometry</code> class in 
+the <a href="http://homerreid.github.io/scuff-em-documentation/API/libscuff/"><span class="SC">scuff-em</span> core library</a></p>
+<h1 id="creating-an-swggeometry">Creating an SWGGeometry</h1>
+<pre><code class="c++">  SWGGeometry *G = new SWGGeometry(&quot;E10Sphere_533.buffgeo&quot;);
+</code></pre>
+
+<h1 id="setting-up-and-solving-the-vie-system">Setting up and solving the VIE system</h1>
+<p>Note: Incident fields are handled the same way as in <a class="wikilink" href="../../scuff-em/">scuff-em</a>; see
+<a href="http://homerreid.github.io/scuff-em-documentation/reference/IncidentFields">Incident fields in <span class="SC">scuff-em</span></a>.</p>
+<pre><code class="c++">  HMatrix *M     = G-&gt;AllocateVIEMatrix();
+  HVector *J     = G-&gt;AllocateRHSVector();
+
+  cdouble E0[3]  = {1.0, 0.0, 0.0};
+  double nHat[3] = {0.0, 0.0, 1.0};
+  PlaneWave *PW  = new PlaneWave(E0, nHat);
+
+  G-&gt;AssembleVIEMatrix(Omega, M);
+  G-&gt;AssembleRHSVector(Omega, PW, J);
+  M-&gt;LUFactorize();
+  M-&gt;LUSolve(J);
+</code></pre>
+
+<h1 id="computing-scattered-and-total-fields">Computing scattered and total fields</h1>
+<pre><code class="c++">
+  HMatrix *XMatrix=new HMatrix(&quot;ListOfEvaluationPoints&quot;);
+
+  HMatrix *EHIncMatrix = G-&gt;GetFields(PW,  J, Omega, XMatrix);
+  HMatrix *EHScatMatrix = G-&gt;GetFields(0,  J, Omega, XMatrix);
+
+  // E, H fields at the nth evaluation point are now in the 
+  // nth row of the matrices, like this: Ex Ey Ez Hx Hy Hz
+
+  int np=7;
+  double X[3];
+  cdouble E[3], H[3];
+
+  XMatrix-&gt;GetEntries(np, &quot;:&quot;, X);
+  E[0] = EHIncMatrix-&gt;GetEntry(np, 0) + EHScatMatrix-&gt;GetEntry(np, 0);
+  E[1] = EHIncMatrix-&gt;GetEntry(np, 1) + EHScatMatrix-&gt;GetEntry(np, 1);
+  E[2] = EHIncMatrix-&gt;GetEntry(np, 2) + EHScatMatrix-&gt;GetEntry(np, 2);
+  H[0] = EHIncMatrix-&gt;GetEntry(np, 3) + EHScatMatrix-&gt;GetEntry(np, 3);
+  H[1] = EHIncMatrix-&gt;GetEntry(np, 4) + EHScatMatrix-&gt;GetEntry(np, 4);
+  H[2] = EHIncMatrix-&gt;GetEntry(np, 5) + EHScatMatrix-&gt;GetEntry(np, 5);
+
+  // now X[0..2] are the coordinates of evaluation point #np
+  // and E[0..2], H[0..2] are the total E and H fields there
+</code></pre>
+
+<h1 id="transforming-the-geometry">Transforming the geometry</h1>
+<p>To rotate the object named "SmallerTorus" by 90 degrees around the <em>z</em>
+axis, then displaced it upward by 3 length units:</p>
+<pre><code class="c++"> SWGVolume *O = G-&gt;GetObjectByLabel(&quot;SmallerTorus&quot;);
+ if (!O) 
+  ErrExit(&quot;no such object&quot;); 
+
+ O-&gt;Transform(&quot;ROTATED 90 ABOUT 0 0 1&quot;);
+ O-&gt;Transform(&quot;DISPLACED 0 0 3&quot;);
+</code></pre>
+
+<h1 id="computing-power-force-and-torque">Computing power, force, and torque</h1>
+<pre><code class="c"> PFTOptions MyOptions;
+ InitPFTOptions(&amp;MyOptions);
+
+ PFTOptions-&gt;PFTMethod = BUFF_PFT_JDE; // or BUFF_PFT_DSI or BUFF_PFT_OVERLAP
+ PFTOptions-&gt;IF = PW; // incident field is needed for some PFT methods
+
+ HMatrix *PFTMatrix=G-&gt;GetPFT(J, Omega);
+
+ // PFTMatrix-&gt;GetEntryD(no, nq) now returns the #nqth power quantity for object #no
+ // no=0,1, ..., G-&gt;NumObjects - 1
+ // nq=0,1   for absorbed, scattered power
+ //    2,3,4 for force (x,y,z)
+ //    5,6,7 for torque (x,y,z)
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../tex/buff-em-tex/" class="btn btn-neutral float-right" title="Technical memo"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../applications/buff-analyze/" class="btn btn-neutral" title="buff-analyze"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  <a href="http://homerreid.com/buff-em"> 
+    <span class="SmallCaps">buff-em</span>
+  </a> documentation, by
+  <a href="http://homerreid.com">Homer Reid</a>
+
+  <p>
+  <font size=-1>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> 
+  using a customized theme modeled 
+  after the 
+  <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+  provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  </font>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../applications/buff-analyze/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../tex/buff-em-tex/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
