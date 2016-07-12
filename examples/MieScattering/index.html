@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mie scattering - BUFF-EM documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../buffEM.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "examples/MieScattering/index"
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+
+      <p align="center"
+      <a href="../..">
+         <img align="center" height="auto" width="100%"  
+              src="../../img/buffEMLogo.png"
+      </a>
+
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BUFF-EM documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">BUFF-EM documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Mie scattering</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#gmsh-geometry-file-and-volume-mesh-for-a-single-sphere">gmsh geometry file and volume mesh for a single sphere</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#buff-em-geometry-file-for-a-single-sphere">buff-em geometry file for a single sphere</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#defining-frequencies-at-which-to-run-computations">Defining frequencies at which to run computations</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#running-the-sphere-computation">Running the sphere computation</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#a-note-on-computation-time">A note on computation time</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../JanusParticles/">Power, force, and torque on a Janus particle irradiated by a plane wave</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../SiO2Spheres/">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Pinwheels/">Thermal self-rotation of QED pinwheels</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/TopLevel/">Top-level overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/Installing/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/Geometries/">Geometry descriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/SVTensors/">Inhomogeneous/anisotropic materials</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../reference/BUFFvsSCUFF/">Key differences between BUFF and SCUFF</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Command-line application reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-scatter/">buff-scatter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-neq/">buff-neq</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-analyze/">buff-analyze</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/libbuff/">libbuff</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical memo</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tex/buff-em-tex/">Technical memo</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BUFF-EM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.."><span class="SmallCaps">buff-em</span> documentation</a> &raquo;</li>
+    
+      
+        
+          <li>Examples &raquo;</li>
+        
+      
+    
+    <li>Mie scattering</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/homerreid/buff-em/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mie-scattering-in-buff-em">Mie scattering in <a class="wikilink" href="../../buff-em/">buff-em</a></h1>
+<p>In this example we use <a class="wikilink" href="../../buff-scatter/">buff-scatter</a> to solve the canonical textbook
+problem of <em>Mie scattering</em>---the scattering of a plane wave
+from a dielectric sphere. The files for this example are in the 
+<code>share/buff-em/examples/MieScattering</code> subdirectory of the 
+<a class="wikilink" href="../../buff-em/">buff-em</a> source distribution.</p>
+<hr />
+<h2 id="gmsh-geometry-file-and-volume-mesh-for-a-single-sphere"><span class="SC">gmsh</span> geometry file and volume mesh for a single sphere</h2>
+<p>We begin by creating a 
+<a href="http://geuz.org/gmsh"><span class="SC">gmsh</span></a> 
+geometry file for a sphere: <a href="./Sphere.geo">(<code>Sphere.geo</code>)</a>.
+(Note that, because we will be producing a volume mesh instead 
+of a surface mesh, the <a class="wikilink" href="../../gmsh/">gmsh</a> geometry file is not quite
+the same as the file <code>Sphere.geo</code> that we used to 
+generate surface meshes for 
+<a href="http://homerreid.github.io/scuff-em-documentation/examples/MieScattering/MieScattering">Mie scattering in <span class="SC">scuff-em</span></a>.</p>
+<p>We turn this geometry file into coarser and finer 
+volume meshes by running the following commands:</p>
+<pre><code class="bash"> % gmsh -3 -clscale 1.0  Sphere.geo
+ % RenameMesh3D Sphere.msh
+
+ % gmsh -3 -clscale 0.65 Sphere.geo
+ % RenameMesh3D Sphere.msh
+</code></pre>
+
+<p>Here the <code>-3</code> option to <a class="wikilink" href="../../gmsh/">gmsh</a> says we want a 3D (volume) mesh 
+(as opposed to <code>-2</code> for a 2D (surface) mesh. The <code>-clscale</code>
+option sets an overall multiplicative prefactor that scales
+the fineness of the meshing.</p>
+<p>Also, the <a class="wikilink" href="../../bash/">bash</a> script <a href="./../../reference/RenameMesh3D"><code>RenameMesh3D</code></a>
+is a little utility that calls 
+<a href="../../applications/buff-analyze/"><span class="SC">buff-analyze</span></a>
+to count the number of interior tetrahedon faces in the mesh 
+(equal to the number of SWG basis functions, and thus
+the dimension of the VIE matrix) and rename the meshfile to
+reflect this information. The script also changes the file 
+extension from <code>.msh</code> to <code>.vmsh</code> to remind me that this is a 
+volume mesh instead of a surface mesh.</p>
+<p>Thus the above steps produce files named 
+<code>Sphere_677.vmsh</code> and <code>Sphere_1675.vmsh</code>. 
+You can open these files in <a class="wikilink" href="../../gmsh/">gmsh</a> to see what they
+look like:</p>
+<p><img alt="Sphere_677 mesh image" src="./Sphere_677.png" /></p>
+<p><img alt="Sphere_1675 mesh image" src="./Sphere_1675.png" /></p>
+<p>Of course, from these pictures we can't tell that we 
+are working with volume meshes instead of surface meshes.
+To see the outlines of the tetrahedra, turn off the 
+"Surface faces" display in the <a class="wikilink" href="../../gmsh/">gmsh</a> "Mesh" options 
+tab:</p>
+<p><img alt="Sphere_1675 mesh image" src="./Sphere_1675_Bare.png" /></p>
+<hr />
+<h2 id="buff-em-geometry-file-for-a-single-sphere"><span class="SC">buff-em</span> geometry file for a single sphere</h2>
+<p>Next we create a 
+<a href="../../reference/Geometries/"><span class="SC">buff-em</span> geometry file</a> 
+that will tell <a class="wikilink" href="../../buff-scatter/">buff-scatter</a> about our geometry, including both 
+the volume mesh and the material properties (dielectric function) 
+of the sphere. As a first example, we'll use a dielectric model for
+silicon carbide that expresses the relative permittivity as a
+rational function of <script type="math/tex">\omega</script>; in this case we'll call the
+geometry file <code>SiCSphere_677.buffgeo.</code></p>
+<pre><code class="bash">MATERIAL SiliconCarbide
+
+   EpsInf = 6.7;
+   a0     = -3.32377e28;
+   a1     = +8.93329e11;
+   b0     = -2.21677e28;
+   b1     = 8.93329e11;
+   Eps(w) = EpsInf * (a0 + i*a1*w + w*w) / ( b0 + i*b1*w + w*w);
+
+ENDMATERIAL 
+
+OBJECT TheSphere
+        MESHFILE Sphere_677.vmsh
+        MATERIAL SiliconCarbide
+ENDOBJECT
+</code></pre>
+
+<p>(Note that, because this particular example involves an isotropic
+and homogeneous (spatially constant) dielectric function, we
+can simply use the <code>MATERIAL</code> keyword to specify a 
+<a href="http://homerreid.github.io/scuff-em-documentation/reference/Materials"><span class="SC">scuff-em</span> material property definition</a>,
+just as we would in a <a class="wikilink" href="../../scuff-em/">scuff-em</a> geometry file. To specify
+anisotropic and/or inhomogeneous materials in <a class="wikilink" href="../../buff-em/">buff-em</a>, 
+we would instead use the <code>SVTensor</code> keyword, as documented on 
+the page 
+<a href="../../reference/SVTensors/">Spatially-varying permittivity tensors in <span class="SC">buff-em</span></a>.
+We will see an example of a <code>SVTensor</code> specification later
+in this tutorial example.)</p>
+<hr />
+<h2 id="defining-frequencies-at-which-to-run-computations">Defining frequencies at which to run computations</h2>
+<p>Next, we create a simple file called
+<a href="./OmegaFile"><code>OmegaFile</code></a> containing a
+list of angular frequencies at which to run the scattering problem:</p>
+<pre><code class="bash">    0.010
+    0.013
+    ...
+    10.0
+</code></pre>
+
+<p>(We pause to note one subtlety here: As in <a class="wikilink" href="../../scuff-em/">scuff-em</a>,
+angular frequencies specified
+using the <code>--Omega</code> or <code>--OmegaFile</code> arguments are interpreted in 
+units of <script type="math/tex">c / 1 \mu</script>m = <script type="math/tex">3\cdot 10^{14}</script> rad/sec.
+These are natural 
+frequency units to use for problems involving micron-sized objects; 
+in particular, for Mie scattering from a sphere of radius 1 μm, as 
+we are considering here, the numerical value of <code>Omega</code> is just the 
+quantity <script type="math/tex">kR</script> (wavenumber times radius) known as the 
+"size parameter" in the Mie scattering literature. In contrast, 
+when specifying functions of angular frequency like <code>Eps(w)</code> in 
+<code>MATERIAL...ENDMATERIAL</code> sections of geometry files or in any other 
+<a href="../../reference/SVTensors/"><span class="SC">buff-em</span> material description</a>, 
+the <code>w</code> variable 
+is always interpreted in units of <strong>1 <code>rad/sec</code></strong>, because these are
+the units in which tabulated material properties and functional forms
+for model dielectric functions are typically expressed.)</p>
+<hr />
+<h2 id="running-the-sphere-computation">Running the sphere computation</h2>
+<p>Finally, we'll create a little text file called <code>Args</code> that will contain
+a list of command-line options for <a class="wikilink" href="../../buff-scatter/">buff-scatter</a>; these will include
+<strong>(1)</strong> a specification of the geometry, <strong>(2)</strong> the frequency list,
+<strong>(3)</strong> the name of an output file for the power, force, and torque,
+and <strong>(4)</strong> a specification of the incident field, which in
+this case is a linearly polarized <em>z</em>-traveling plane wave
+with <strong>E</strong>-field pointing in the <em>x</em> direction:</p>
+<pre><code class="bash">    geometry SiCSphere_677.buffgeo
+    PFTFile SiCSphere.PFT
+    OmegaFile OmegaFile
+    pwDirection 0 0 1
+    pwPolarization 1 0 0
+</code></pre>
+
+<p>And now we just pipe this little file into the standard input of <a class="wikilink" href="../../buff-scatter/">buff-scatter</a>:</p>
+<pre><code class="bash">    % buff-scatter &lt; Args 
+</code></pre>
+
+<p>This produces the file <code>SiCSphere_677.PFT</code>, which contains one line
+per simulated frequency; each line contains data on the scattered
+and total power, the force, and the torque on the particle at that
+frequency. (Look at the first few lines of the file for a text description
+of how to interpret it.)</p>
+<p>Here's a comparison of the <a class="wikilink" href="../../buff-scatter/">buff-scatter</a> results with the
+analytical Mie series, as computed
+using <a href="./Mie.math">this Mathematica script.</a> [Like most Mie codes, 
+this script computes the absorption and scattering <em>cross-sections</em>, 
+which we multiply by the incoming beam flux (<script type="math/tex">\frac{1}{2Z_0}</script> for a 
+unit-strength plane wave in vacuum) to get values for the absorbed 
+and scattered <em>power</em>.]</p>
+<p><img alt="Silicon carbide data plot" src="./SiCData.buff-scatter.png" /></p>
+<hr />
+<h2 id="a-note-on-computation-time">A note on computation time</h2>
+<p>As discussed <a href="../../reference/BUFFvsSCUFF/#Caching">here</a>, the first 
+calculation done by <a class="wikilink" href="../../buff-em/">buff-em</a> on any given geometry
+will be significantly slower than all subsequent 
+calculations (including the 2nd and subsequent
+frequencies in the <code>OmegaFile</code>, as well as any 
+subsequent <a class="wikilink" href="../../buff-scatter/">buff-scatter</a> or <a class="wikilink" href="../../buff-neq/">buff-neq</a>
+runs you may do using the same object mesh, even
+if you change the material properties). The reason
+for this is that, when <a class="wikilink" href="../../buff-em/">buff-em</a> first assembles
+the self-interaction block of the system matrix for 
+a given object, it stores the most time-intensive 
+portions of the calculation for later reuse.
+(The data are stored in memory for reuse within the
+same run, and are also written to disk in the form of 
+a binary cache file for reuse in later runs).</p>
+<p>For the particular calculation described here,
+you can accelerate this process by downloading the
+(13 megabyte) cache file for the <code>Sphere_677.vmsh</code>
+from this link: 
+<a href="http://homerreid.com/Sphere_677.cache"><code>Sphere_677.cache</code></a>.
+Put this file into your working directory when you
+run <a class="wikilink" href="../../buff-scatter/">buff-scatter</a>, and the calculation
+will proceed much more quickly. </p>
+<p>For example, on my (fairly fast) laptop, computing
+the cache file takes 12 minutes, after which computing
+the PFT at each individual frequency takes about 20 seconds.</p>
+<p>You can monitor the progress of the calculation by following 
+the <code>buff-scatter.log</code> file. Note that, during
+computationally-intensive operations such as the VIE matrix
+assembly, the code should be using all available CPU cores
+on your workstation; if you find that this is
+not the case (for example, by monitoring CPU usage using
+<a href="http://htop.sourceforge.net"><span class="SC">htop</span></a>)
+you may need to
+<a href="../../reference/Installing/">reconfigure and recompile with different <a class="wikilink" href="../../openmp/">openmp</a> 
+configuration options.</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../JanusParticles/" class="btn btn-neutral float-right" title="Power, force, and torque on a Janus particle irradiated by a plane wave"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="BUFF-EM documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  <a href="http://homerreid.com/buff-em"> 
+    <span class="SmallCaps">buff-em</span>
+  </a> documentation, by
+  <a href="http://homerreid.com">Homer Reid</a>
+
+  <p>
+  <font size=-1>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> 
+  using a customized theme modeled 
+  after the 
+  <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+  provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  </font>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../JanusParticles/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

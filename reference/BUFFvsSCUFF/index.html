@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Key differences between BUFF and SCUFF - BUFF-EM documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../buffEM.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "reference/BUFFvsSCUFF"
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+
+      <p align="center"
+      <a href="../..">
+         <img align="center" height="auto" width="100%"  
+              src="../../img/buffEMLogo.png"
+      </a>
+
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BUFF-EM documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">BUFF-EM documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/MieScattering/">Mie scattering</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/JanusParticles/">Power, force, and torque on a Janus particle irradiated by a plane wave</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/SiO2Spheres/">Thermal radiation, heat transfer, and non-equilibrium Casimir forces between silicon dioxide spheres</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/PhotonTorpedoes/">Thermal radiation and self-propulsion of photon torpedoes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../examples/Pinwheels/">Thermal self-rotation of QED pinwheels</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../TopLevel/">Top-level overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Installing/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Geometries/">Geometry descriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../SVTensors/">Inhomogeneous/anisotropic materials</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Key differences between BUFF and SCUFF</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#differences-in-capabilities">Differences in capabilities</a></li>
+                
+                    <li><a class="toctree-l4" href="#what-buff-em-can-do-that-scuff-em-cant-do">What buff-em can do that scuff-em can't do</a></li>
+                
+                    <li><a class="toctree-l4" href="#what-buff-em-cant-do-that-scuff-em-can-do">What buff-em can't do that scuff-em can do</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#differences-in-input-files">Differences in input files</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#differences-in-caching">Differences in caching</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#differences-in-the-underlying-formalism">Differences in the underlying formalism</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Command-line application reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-scatter/">buff-scatter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-neq/">buff-neq</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../applications/buff-analyze/">buff-analyze</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/libbuff/">libbuff</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical memo</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tex/buff-em-tex/">Technical memo</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BUFF-EM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.."><span class="SmallCaps">buff-em</span> documentation</a> &raquo;</li>
+    
+      
+        
+          <li>General reference &raquo;</li>
+        
+      
+    
+    <li>Key differences between BUFF and SCUFF</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/homerreid/buff-em/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="key-differences-between-buff-em-and-scuff-em">Key differences between <a class="wikilink" href="../../buff-em/">buff-em</a> and <a class="wikilink" href="../../scuff-em/">scuff-em</a></h1>
+<h2 id="differences-in-capabilities">Differences in capabilities</h2>
+<h3 id="what-buff-em-can-do-that-scuff-em-cant-do">What <a class="wikilink" href="../../buff-em/">buff-em</a> can do that <a class="wikilink" href="../../scuff-em/">scuff-em</a> can't do</h3>
+<ul>
+<li>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> can handle objects with anisotropic and/or
+continuously spatially varying dielectric permittivity.
+The components of the 3x3 dielectric tensor may be 
+any arbitrary user-specified functions of space and
+frequency.</p>
+</li>
+<li>
+<p>The volume-integral technique used by <a class="wikilink" href="../../buff-em/">buff-em</a> to
+handle non-equilibrium Casimir forces and torques is
+significantly faster than the surface-integral
+technique used by <a class="wikilink" href="../../scuff-em/">scuff-em</a>.</p>
+</li>
+</ul>
+<h3 id="what-buff-em-cant-do-that-scuff-em-can-do">What <a class="wikilink" href="../../buff-em/">buff-em</a> <em>can't</em> do that <a class="wikilink" href="../../scuff-em/">scuff-em</a> can do</h3>
+<ul>
+<li>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> does not currently support extended objects 
+or periodic boundary conditions; all bodies must be compact 
+objects. This may change in a later version of the code.</p>
+</li>
+<li>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> does not currently support magnetic materials 
+(<script type="math/tex">\mu \ne 1</script>). This may change in a later version of the
+code.</p>
+</li>
+<li>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> does not support perfectly electrically
+conducting (PEC) bodies or bodies with surface
+conductivity. This <strong>will not change</strong> in later versions
+of the code, because these idealizations are not
+supported by the underlying formulation of 
+electromagnetism (the volume-integral-equation
+approach) implemented by the <a class="wikilink" href="../../buff-em/">buff-em</a> core library.</p>
+</li>
+</ul>
+<h2 id="differences-in-input-files">Differences in input files</h2>
+<ul>
+<li>
+<p>Geometry files in <a class="wikilink" href="../../buff-em/">buff-em</a> are conventionally
+given the extension <code>.buffgeo</code> instead of <code>.scuffgeo</code>
+as in <a class="wikilink" href="../../scuff-em/">scuff-em</a>.</p>
+</li>
+<li>
+<p>Mesh files---which describe collections of tetrahedra,
+not collections of triangles---are conventionally given the 
+extension <code>.vmsh</code> instead of <code>.msh</code>. (Tetrahedral meshes
+may be generated in <code>gmsh</code> using the command-line 
+argument <code>-3</code> as opposed to <code>-2</code> for triangular meshes.
+This will produce a <code>.msh</code> file, which will be automatically
+renamed to a <code>.vmsh</code> file by this <a class="wikilink" href="../../bash/">bash</a> script:
+<a href="../RenameMesh3D"><code>RenameMesh3D</code></a>.</p>
+</li>
+<li>
+<p><a class="wikilink" href="../../buff-em/">buff-em</a> looks for mesh files in the current
+  working directory and in the directory specified
+  by the environment variables <code>BUFF_MESH_DIR.</code></p>
+</li>
+</ul>
+<p><a name="Caching"></a></p>
+<h2 id="differences-in-caching">Differences in caching</h2>
+<ul>
+<li>
+<p>The discretized integral-equation formalisms implemented
+by <a class="wikilink" href="../../buff-em/">buff-em</a> and <a class="wikilink" href="../../scuff-em/">scuff-em</a> are similar in one key
+respect: the assembly of the system matrix required
+to solve scattering problems involves the computation of 
+large numbers of singular multidimensional integrals. To
+accelerate this task, both <a class="wikilink" href="../../buff-em/">buff-em</a> and <a class="wikilink" href="../../scuff-em/">scuff-em</a>
+implement a <em>caching</em> scheme in which certain 
+frequency-independent contributions to matrix elements
+for a given structure
+are stored in binary data files to allow them to be
+reused in subsequent calculations on the same structure.</p>
+</li>
+<li>
+<p>However, whereas caching is considered as a somewhat
+optional acceleration feature in <a class="wikilink" href="../../scuff-em/">scuff-em</a>,
+it is treated as <em>mandatory</em> in <a class="wikilink" href="../../buff-em/">buff-em</a>, because
+the speedup afforded by caching is much greater
+in this case (essentially because the singular
+integrals in question are now 6-dimensional instead 
+of 4-dimensional and thus much more expensive to 
+compute from scratch; the acceleration enabled
+by caching thus makes a greater difference).</p>
+</li>
+<li>
+<p>For this reason, the caching process in <a class="wikilink" href="../../buff-em/">buff-em</a>
+is designed to be largely transparent to the user;
+in particular, there are no cache-related command-line
+arguments to application codes. Instead, for each meshed 
+object (each <code>.vmsh</code> file) specified in a <code>.buffgeo</code> 
+file, <a class="wikilink" href="../../buff-em/">buff-em</a> looks <strong>automatically</strong> for the cache 
+file; if no file is found, <a class="wikilink" href="../../buff-em/">buff-em</a> <strong>automatically</strong> 
+writes this file to disk after the first matrix assembly.</p>
+</li>
+<li>
+<p>The cache file associated to a meshed object
+described by a <a class="wikilink" href="../../gmsh/">gmsh</a> file named <code>Object.vmsh</code> is
+always named <code>Object.cache.</code> Before the first
+matrix assembly, <a class="wikilink" href="../../buff-em/">buff-em</a> looks for
+this file in a couple of different places:</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>The current working directory</li>
+<li>The directory specified by the environment variable
+<code>BUFF_CACHE_DIR</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>If the <code>.cache</code> file is not found in either location,
+<a class="wikilink" href="../../buff-em/">buff-em</a> computes all integrals from scratch
+when it first assembles the system matrix (that is,
+when it handles the first user-specified frequency)
+and then writes the file to disk as soon as that
+assembly is complete. If the environment variable
+<code>BUFF_CACHE_DIR</code> is set, <a class="wikilink" href="../../buff-em/">buff-em</a> writes the
+<code>.cache</code> file to the directory it specifies; otherwise,
+the file is written to the current working directory.</p>
+</li>
+<li>
+<p>As in <a class="wikilink" href="../../scuff-em/">scuff-em</a>, the <code>.cache</code> file is 
+<em>independent of frequency and material properties</em>,
+so it only needs to be computed <strong>once</strong> for
+a given <code>.vmsh</code> file, after which it may be 
+reused for different computations on that object
+at different frequencies and even different 
+material properties (including 
+<a href="../SVTensors/">anisotropic or inhomogeneous materials</a>).</p>
+</li>
+<li>
+<p>The code <a href="../../applications/buff-analyze/"><span class="SC">buff-analyze</span></a>
+offers the command-line option <code>--WriteGCache</code> to precompute
+and write to disk the <code>.cache</code> files for a given <code>.vmsh</code> file. 
+Thus, before you start any <a class="wikilink" href="../../buff-em/">buff-em</a> calculation,
+you can say </p>
+</li>
+</ul>
+<pre><code class="bash"> % buff-analyze --MeshFile Object.vmsh --WriteGCache
+</code></pre>
+
+<p>This will create a file named <code>Object.cache</code> in the
+current working directory (or in the directory
+specified by <code>BUFF_CACHE_DIR</code> if it is set). Although
+this will take some time to complete, the advantage 
+is that your calculations will run quickly already 
+on the first frequency.</p>
+<h2 id="differences-in-the-underlying-formalism">Differences in the underlying formalism</h2>
+<ul>
+<li>The computational paradigm employed by <a class="wikilink" href="../../scuff-em/">scuff-em</a>
+separates space into contiguous homogeneous regions
+bounded by closed surfaces. The fields in any
+region are determined solely from knowledge of the 
+surface currents on the surfaces bounding that surface
+(together with the fields of any bulk sources that 
+exist within the region).</li>
+</ul>
+<p>In <a class="wikilink" href="../../buff-em/">buff-em</a> there is no such separation. Instead,
+all objects exist in a single ginormous all-encompassing
+homogeneous region (the vacuum) and the fields at any 
+point receive contributions from all objects and from
+any incident-field sources that may be present.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../applications/buff-scatter/" class="btn btn-neutral float-right" title="buff-scatter"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../SVTensors/" class="btn btn-neutral" title="Inhomogeneous/anisotropic materials"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  <a href="http://homerreid.com/buff-em"> 
+    <span class="SmallCaps">buff-em</span>
+  </a> documentation, by
+  <a href="http://homerreid.com">Homer Reid</a>
+
+  <p>
+  <font size=-1>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> 
+  using a customized theme modeled 
+  after the 
+  <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+  provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  </font>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../SVTensors/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../applications/buff-scatter/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
