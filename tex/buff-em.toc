@@ -1,0 +1,22 @@
+\select@language {english}
+\contentsline {section}{\relax \fontsize {12}{14}\selectfont Part I: Theory}{3}
+\contentsline {section}{\numberline {1}VIE formulation of classical EM scattering}{3}
+\contentsline {subsection}{\numberline {1.1}Continuous VIE formulation}{3}
+\contentsline {subsection}{\numberline {1.2}Discretized VIE formulation}{4}
+\contentsline {section}{\numberline {2}Computation of power, force, and torque}{6}
+\contentsline {subsection}{\numberline {2.1}Displaced surface-integral (DSI) PFT}{6}
+\contentsline {subsection}{\numberline {2.2}JDEPFT}{6}
+\contentsline {subsection}{\numberline {2.3}OPFT}{9}
+\contentsline {section}{\numberline {3}FVC approach to fluctuation-induced phenomena}{11}
+\contentsline {subsection}{\numberline {3.1}Energy and momentum transfer from volume-current bilinears}{11}
+\contentsline {subsection}{\numberline {3.2}Statistical averages of volume-current bilinears}{14}
+\contentsline {section}{\relax \fontsize {12}{14}\selectfont Part II: Implementation}{16}
+\contentsline {section}{\numberline {4}SWG Basis Functions}{17}
+\contentsline {section}{\numberline {5}SWG Matrix Elements of the $\mathbb {G}$ operator}{18}
+\contentsline {subsection}{\numberline {5.1}Distant case: Volume-integral method}{18}
+\contentsline {subsection}{\numberline {5.2}Nearby case: Desingularization}{18}
+\contentsline {subsection}{\numberline {5.3}Evaluation of singular integrals: Taylor-Duffy Method}{18}
+\contentsline {section}{\numberline {A}Dictionary of the operator--matrix correspondence}{19}
+\contentsline {section}{\numberline {B}Derivation of volume integrals for the force and torque}{21}
+\contentsline {section}{\numberline {C}From Rytov to Johnson-Nyquist}{23}
+\contentsline {section}{\numberline {D}Volume integrals involving SWG basis functions}{27}

@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: buff-em.aux
+The style file: ieeetr.bst
+Database file #1: buff-em.bib
+Warning--I didn't find a database entry for "Kruger2012"
+You've used 3 entries,
+            1876 wiz_defined-function locations,
+            506 strings with 4181 characters,
+and the built_in function-call counts, 946 in all, are:
+= -- 93
+> -- 42
+< -- 0
++ -- 15
+- -- 12
+* -- 67
+:= -- 137
+add.period$ -- 3
+call.type$ -- 3
+change.case$ -- 3
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 54
+empty$ -- 70
+format.name$ -- 12
+if$ -- 233
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 3
+newline$ -- 12
+num.names$ -- 3
+pop$ -- 5
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 52
+stack$ -- 0
+substring$ -- 44
+swap$ -- 33
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 7
+width$ -- 4
+write$ -- 32
+(There was 1 warning)
